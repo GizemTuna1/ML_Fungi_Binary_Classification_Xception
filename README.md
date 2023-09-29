@@ -15,7 +15,7 @@ The model achieved a high overall accuracy of 0.981 and high precision score of 
 
 - Anaconda Environment: The environment used for conducting this study
 
-- Datasets: The datasets used for training, validation, and testing of the model.
+- Datasets: The datasets used for training, validation, and testing of the model. The labelling system used to label images can be found in the 'Labelling_System.txt'.
 
 
 
