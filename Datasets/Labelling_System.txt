@@ -1,0 +1,102 @@
+AFU-A01-002-04-0001
+Genus: A: Aspergillus
+Species: FU: Fumigatus
+A01: A01={TSA Agar} 
+002: incubation duration (days)
+04: 4X Magnification
+0001: #
+
+AFU-A02-002-04-0001
+Genus: A: Aspergillus
+Species: FU: Fumigatus
+A02: A02={SDA Agar} 
+002: incubation duration (days)
+04: 4X Magnification
+0001: #
+
+AFU-A03-002-04-0001
+Genus: A: Aspergillus
+Species: FU: Fumigatus
+A03: A03={PDA Agar} 
+002: incubation duration (days)
+04: 4X Magnification
+0001: #
+
+Aspergillus Niger:
+
+ANI-A01-002-04-0001
+Genus: A: Aspergillus
+Species: NI: Niger
+A01: A01={TSA Agar}
+002: incubation duration (days)
+04: 4X Magnification
+0001: #
+
+ANI-A02-002-04-0001
+Genus: A: Aspergillus
+Species: NI: Niger
+A02: A02={SDA Agar}
+002: incubation duration (days)
+04: 4X Magnification
+0001: #
+
+ANI-A03-002-04-0001
+Genus: A: Aspergillus
+Species: NI: Niger
+A03: A03={PDA Agar}
+002: incubation duration (days)
+04: 4X Magnification
+0001: #
+
+
+Rhizopus stolonifer:
+
+RST-A01-002-04-0001
+Genus: R: Rhizopus
+Species: ST: stolonifer
+A01: A01={TSA Agar}
+002: incubation duration (days)
+04: 4X Magnification
+0001: #
+
+RST-A02-002-04-0001
+Genus: R: Rhizopus
+Species: ST: stolonifer
+A02: A02={SDA Agar}
+002: incubation duration (days)
+04: 4X Magnification
+0001: #
+
+RST-A03-002-04-0001
+Genus: R: Rhizopus
+Species: ST: stolonifer
+A03: A03={PDA Agar}
+002: incubation duration (days)
+04: 4X Magnification
+0001: #
+
+Penicillium chrysogenum:
+
+PCH-A01-002-04-0001
+Genus: P: Penicillium
+Species: CH: chrysogenum
+A01: A01={TSA Agar}
+002: incubation duration (days)
+04: 4X Magnification
+0001: #
+
+PCH-A02-002-04-0001
+Genus: P: Penicillium
+Species: CH: chrysogenum
+A02: A02={SDA Agar}
+002: incubation duration (days)
+04: 4X Magnification
+0001: #
+
+PCH-A03-002-04-0001
+Genus: P: Penicillium
+Species: CH: chrysogenum
+A03: A03={PDA Agar}
+002: incubation duration (days)
+04: 4X Magnification
+0001: #
