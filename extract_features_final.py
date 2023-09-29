@@ -15,7 +15,7 @@ from tensorflow.keras.applications import xception
 from PIL import Image
 
 # Path to folders with image data
-train_path = Path("C:/Users/gizem/Masaüstü/Final Version/Final Datasets/Training")
+train_path = Path("./Training")
 
 # Lists to store images and labels
 images = []
@@ -57,7 +57,7 @@ pretrained_nn = xception.Xception(weights='imagenet', include_top=False, input_s
 features_x = pretrained_nn.predict(x_train)
 
 # Specify the path to the existing "Extracted Features" folder
-folder_path = "C:/Users/gizem/Masaüstü/Final Version/Extracted_Features"
+folder_path = "./Extracted_Features"
 
 # Save the array of extracted features to a file
 joblib.dump(features_x, os.path.join(folder_path, "x_train.dat"))
