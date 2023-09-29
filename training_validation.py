@@ -13,11 +13,11 @@ import matplotlib.pyplot as plt
 from keras.optimizers import Adam
 
 # Load data sets
-x_train = joblib.load("C:/Users/gizem/Masaüstü/Final Version/Extracted_features_augmented/x_train.dat")
-y_train = joblib.load("C:/Users/gizem/Masaüstü/Final Version/Extracted_features_augmented/y_train.dat")
+x_train = joblib.load(Path("./x_train.dat"))
+y_train = joblib.load(Path("./y_train.dat"))
 
-x_val = joblib.load("C:/Users/gizem/Masaüstü/Final Version/Extracted_features_augmented/x_val.dat")
-y_val = joblib.load("C:/Users/gizem/Masaüstü/Final Version/Extracted_features_augmented/y_val.dat")
+x_val = joblib.load(Path("./x_val.dat"))
+y_val = joblib.load(Path("./y_val.dat"))
 
 # Reshape the input data to 2-dimensional format (assuming the input is image data)
 num_samples_train, img_height_train, img_width_train, num_channels_train = x_train.shape
@@ -80,7 +80,7 @@ plt.title('Training and Validation Accuracies')
 plt.legend()
 
 # Save the plot as an image file
-save_dir = Path("C:/Users/gizem/Masaüstü/Final Version/Training Accuracy")
+save_dir = Path("./Training Accuracy")
 plt.savefig(save_dir / "accuracy_plot.png")
 
 plt.show()
@@ -103,7 +103,7 @@ plt.xticks(range(1, best_epochs + 1))
 plt.grid(True)
 
 # Save the plot as an image file
-save_dir = Path("C:/Users/gizem/Masaüstü/Final Version/Training Accuracy")
+save_dir = Path("./Training Accuracy")
 plt.savefig(save_dir / "accuracy_gap_graph.png")
 
 plt.show()
@@ -124,7 +124,7 @@ plt.legend()
 plt.grid(True)
 
 # Save the plot as an image file
-save_dir = Path("C:/Users/gizem/Masaüstü/Final Version/Training Accuracy")
+save_dir = Path("./Training Accuracy")
 plt.savefig(save_dir / "loss_plot.png")
 
 plt.show()
@@ -147,7 +147,7 @@ plt.grid(True)
 plt.show()
 
 # Specify the directory path
-directory_path = r'C:/Users/gizem/Masaüstü/Final Version/Model'
+directory_path = "./Model"
 
 # Create a Path object for the directory
 save_dir = Path(directory_path)
