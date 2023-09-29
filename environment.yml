@@ -1,0 +1,4 @@
+name: your_environment_name
+channels:
+  - defaults
+prefix: C:\Users\gizem\anaconda3\envs\your_environment_name
