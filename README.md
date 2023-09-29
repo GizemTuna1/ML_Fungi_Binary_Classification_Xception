@@ -6,7 +6,7 @@ This research aims to explore the feasibility of using digital imaging technique
 
 To train these machine learning models, four different fungal species - A.  fumigatus, A. niger, P. chrysogenum, and R. stolonifer were cultivated under varying incubation conditions. A. fumigatus was designated as positive data while other fungal species were utilized as negative data for this study. Colony images were captured using a 5-megapixel digital camera.
 
-The model achieved a high overall accuracy of 0.981 and high precision score of 0.964. Model's predictions on fungi images are available in the 'predictions.txt' file.
+The model achieved a high overall accuracy of 0.981 and high precision score of 0.964. 
 
 
 ## This repository contains:
@@ -16,6 +16,8 @@ The model achieved a high overall accuracy of 0.981 and high precision score of 
 - Anaconda Environment: The environment used for conducting this study
 
 - Datasets: The datasets used for training, validation, and testing of the model. The labelling system used to label images can be found in the 'Labelling_System.txt'.
+
+- Model's predictions on fungi images are available in the 'predictions.txt' file.
 
 
 
