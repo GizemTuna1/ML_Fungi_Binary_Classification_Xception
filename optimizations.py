@@ -9,23 +9,24 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, BatchNormalization
 from tensorflow.keras.optimizers import Adam
 from sklearn.preprocessing import MinMaxScaler
-#import numpy as np
 import joblib
+from pathlib import Path
 import matplotlib.pyplot as plt
 import os
 from tabulate import tabulate
 
 # Load data
-features_x = joblib.load("C:/Users/gizem/Masaüstü/Final Version/Extracted_Features/x_train.dat")
-y_train = joblib.load("C:/Users/gizem/Masaüstü/Final Version/Extracted_Features/y_train.dat")
+features_x = joblib.load(Path("./x_train.dat"))
+y_train = joblib.load(Path("./y_train.dat"))
 
-x_validation = joblib.load("C:/Users/gizem/Masaüstü/Final Version/Extracted_Features/x_validation.dat")
-y_validation = joblib.load("C:/Users/gizem/Masaüstü/Final Version/Extracted_Features/y_validation.dat")
+x_validation = joblib.load(Path("./x_validation.dat"))
+y_validation = joblib.load(Path("./y_validation.dat"))
 
 # Preprocess data
 # Reshape the features to a 2D format
 features_x_reshaped = features_x.reshape(features_x.shape[0], -1)
 x_validation_reshaped = x_validation.reshape(x_validation.shape[0], -1)
+
 # Create a MinMaxScaler instance and fit it on the training fold features
 scaler = MinMaxScaler()
 features_x_scaled = scaler.fit_transform(features_x.reshape(features_x.shape[0], -1))
@@ -46,7 +47,7 @@ best_batch_size = None
 hyperparameter_results = []
 
 # Specify the directory to save plots and table
-save_dir = "C:/Users/gizem/Masaüstü/Final Version/Optimization"
+save_dir = "./Optimization"
 plot_dir = os.path.join(save_dir, "plot_directory")
 os.makedirs(plot_dir, exist_ok=True)
 
