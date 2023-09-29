@@ -7,13 +7,17 @@ Created on Sat Aug 19 18:42:59 2023
 
 from keras.models import model_from_json
 from pathlib import Path
+import os
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications import xception
 import numpy as np
 
+# Specify the directory path where the model files are located
+model_directory = "./Model"
+
 # Load the json file that contains the model's structure
-model_path = "C:/Users/gizem/Masaüstü/Final Version/Model/model_structure.json"
-weights_path = "C:/Users/gizem/Masaüstü/Final Version/Model/model_weights.h5"
+model_path = os.path.join(model_directory, "model_structure.json")
+weights_path = os.path.join(model_directory, "model_weights.h5")
 
 with open(model_path, "r") as json_file:
     model_structure = json_file.read()
@@ -22,7 +26,7 @@ with open(model_path, "r") as json_file:
 model.load_weights(weights_path)
 
 # Set the path to your dataset directory
-dataset_dir = "C:/Users/gizem/Masaüstü/Final Version/Final Datasets/Test"
+dataset_dir = "./Final Datasets/Test"
 
 # Get a list of image file paths in the dataset directory
 image_paths = list(Path(dataset_dir).glob("*.jpg"))
@@ -69,7 +73,7 @@ for img_path, prediction in zip(image_paths, predictions):
     print("Image: {}, Likelihood that this image contains Aspergillus Fumigatus: {:.2f}%".format(img_path, int(prediction * 100)))
 
 # Save the results to a file
-output_directory = "C:/Users/gizem/Masaüstü/Final Version/Performance Metrics"
+output_directory = "./Performance Metrics"
 output_file = Path(output_directory) / "predictions.txt"
 with open(output_file, "w") as file:
     for img_path, prediction in zip(image_paths, predictions):
@@ -82,10 +86,10 @@ import os
 import csv
 
 # Path to Unseen dataset directory
-unseen_dataset_dir = "C:/Users/gizem/Masaüstü/Final Version/Final Datasets/Test"
+unseen_dataset_dir = "./Final Datasets/Test"
 
 # Path to save the CSV file
-csv_file_path = "C:/Users/gizem/Masaüstü/Final Version/Performance Metrics/unseen_labels.csv"
+csv_file_path = "./Performance Metrics/unseen_labels.csv"
 
 # Open the CSV file for writing
 with open(csv_file_path, 'w', newline='') as csv_file:
@@ -123,7 +127,7 @@ binary_predictions = [1 if pred >= optimal_threshold else 0 for pred in predicti
 actual_labels = []
 
 # Load actual labels from the CSV file
-labels_csv_file = "C:/Users/gizem/Masaüstü/Final Version/Performance Metrics/unseen_labels.csv"
+labels_csv_file = "./Performance Metrics/unseen_labels.csv"
 with open(labels_csv_file, 'r', encoding='utf-8') as csv_file:
     csv_reader = csv.reader(csv_file)
     next(csv_reader)  # Skip the header row
@@ -156,7 +160,7 @@ plt.ylabel("Actual")
 plt.title("Confusion Matrix")
 
 # Save the plot to your directory
-plot_path = "C:/Users/gizem/Masaüstü/Final Version/Performance Metrics/confusion_matrix_plot.png"  
+plot_path = "./Performance Metrics/confusion_matrix_plot.png"  
 plt.savefig(plot_path)
 
 # Display the plot
@@ -185,7 +189,7 @@ plt.xlim(0, 1)  # Set the x-axis limit to match the range of metric values
 plt.xlabel("Values")
 plt.title("Model Performance Metrics")
 
-plot_path = "C:/Users/gizem/Masaüstü/Final Version/Performance Metrics/model_performance_metrics.png"  
+plot_path = "./Performance Metrics/model_performance_metrics.png"  
 plt.savefig(plot_path)
 plt.show()
 
@@ -210,66 +214,6 @@ plt.xlabel('False Positive Rate')
 plt.ylabel('True Positive Rate')
 plt.title('Receiver Operating Characteristic (ROC) Curve')
 plt.legend(loc="lower right")
-plot_path = "C:/Users/gizem/Masaüstü/Final Version/Performance Metrics/ROC_curve.png"  
+plot_path = "./Performance Metrics/ROC_curve.png"  
 plt.savefig(plot_path)
 plt.show()
-
-
-
-
-"""
-# Threshold Exploration
-
-import numpy as np
-# Calculate G-Mean
-gmeans = np.sqrt(tpr * (1 - fpr))
-# Find index of the maximum G-Mean value
-ix = np.argmax(gmeans)
-# Get the corresponding threshold and G-Mean value
-best_threshold = thresholds[ix]
-best_gmean = gmeans[ix]
-print('Best Threshold = %f, G-Mean = %.3f' % (best_threshold, best_gmean)) #Best Threshold = 1.000000, G-Mean = 0.981
-
-OR
-
-threshold_values = np.linspace(0.1, 0.9, num=9)
-
-# Create dictionaries to store evaluation metrics for each threshold
-precision_scores = {}
-recall_scores = {}
-f1_scores = {}
-
-# Loop through each threshold value
-for threshold in threshold_values:
-    # Convert predictions to binary using the current threshold
-    binary_predictions = [0 if pred < threshold else 1 for pred in predictions]
-
-    # Calculate evaluation metrics
-    precision = precision_score(actual_labels, binary_predictions)
-    recall = recall_score(actual_labels, binary_predictions)
-    f1 = f1_score(actual_labels, binary_predictions)
-    
-    # Store metrics in dictionaries
-    precision_scores[threshold] = precision
-    recall_scores[threshold] = recall
-    f1_scores[threshold] = f1
-
-# Find the threshold that maximizes the F1-score
-optimal_threshold = max(f1_scores, key=f1_scores.get)
-
-# Apply the optimal threshold to get final binary predictions
-final_binary_predictions = [0 if pred < optimal_threshold else 1 for pred in predictions]
-
-# Print the optimal threshold and evaluation metrics
-print("Optimal Threshold:", optimal_threshold)
-print("Precision:", precision_scores[optimal_threshold])
-print("Recall:", recall_scores[optimal_threshold])
-print("F1-Score:", f1_scores[optimal_threshold])
-
-# Creating bar plot for metrics
-import matplotlib.pyplot as plt
-
-# ... (Remaining code)
-"""
-
-
